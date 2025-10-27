@@ -14,7 +14,6 @@ export const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Inject Google Fonts dynamically
     const link1 = document.createElement('link');
     link1.rel = 'preconnect';
     link1.href = 'https://fonts.googleapis.com';
@@ -50,6 +49,9 @@ export const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
     setIsPlaying(!isPlaying);
   };
 
+  // Gunakan BASE_URL supaya path tetap valid di GitHub Pages dan localhost
+  const base = import.meta.env.BASE_URL;
+
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
@@ -71,7 +73,7 @@ export const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
               {/* Album Art */}
               <div className="relative w-10 h-10 overflow-hidden rounded-xl shadow-md">
                 <motion.img
-                  src="/frankocean.jpg"
+                  src={`${base}frankocean.jpg`}
                   alt="Album cover"
                   className="object-cover w-full h-full"
                   animate={isPlaying ? { rotate: 360 } : { rotate: 0 }}
@@ -158,7 +160,7 @@ export const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
       </div>
 
       {/* Hidden Audio Element */}
-      <audio ref={audioRef} src="/selfcontrol.mp3" loop />
+      <audio ref={audioRef} src={`${base}selfcontrol.mp3`} loop />
     </motion.nav>
   );
 };

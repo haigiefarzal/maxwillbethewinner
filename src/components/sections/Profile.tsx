@@ -1,5 +1,8 @@
-import { motion } from 'framer-motion';
-import { School, GraduationCap, Briefcase } from 'lucide-react';
+import { motion } from 'framer-motion'
+import { School, GraduationCap, Briefcase } from 'lucide-react'
+
+// Helper untuk ambil URL yang benar, sesuai base Vite
+const publicPath = (file: string) => `${import.meta.env.BASE_URL}${file}`
 
 const experiences = [
   {
@@ -7,29 +10,29 @@ const experiences = [
     title: 'High School — SMAN 62 Jakarta',
     description:
       'A place that sharpened my intellect, leadership, and debating skills with integrity.',
-    background: '/62Background.png',
+    background: publicPath('62Background.png'),
   },
   {
     icon: GraduationCap,
     title: 'University — Universitas Indonesia',
     description:
       'Majoring in Business and Litigation Law, I built my foundation in corporate and civil legal systems.',
-    background: '/UnivBackground.png',
+    background: publicPath('UnivBackground.png'),
   },
   {
     icon: Briefcase,
     title: 'Internship — Magnus & Co. Attorneys',
     description:
       'Handled corporate dispute analysis, courtroom brief drafting, and litigation assistance.',
-    background: '/MagangBackground.jpg',
+    background: publicPath('MagangBackground.jpg'),
   },
-];
+]
 
 export const Profile = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 py-20">
       <div className="max-w-6xl w-full">
-        {/* Title & Bio */}
+        {/* === Title & Bio === */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,55 +76,58 @@ export const Profile = () => {
           </p>
         </motion.div>
 
-        {/* Experience Cards */}
+        {/* === Experience Cards === */}
         <div className="grid md:grid-cols-3 gap-8">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={exp.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              viewport={{ once: true, margin: '-100px' }}
-              whileHover={{ y: -10 }}
-              className="relative p-8 rounded-2xl border border-gray-300/50 transition-all cursor-none shadow-lg overflow-hidden bg-white/60 backdrop-blur-sm"
-            >
-              {/* Background transparan di setiap kartu */}
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-25 transition-opacity duration-500 hover:opacity-45"
-                style={{ backgroundImage: `url(${exp.background})` }}
-              ></div>
+          {experiences.map((exp, index) => {
+            const Icon = exp.icon
+            return (
+              <motion.div
+                key={exp.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true, margin: '-100px' }}
+                whileHover={{ y: -10 }}
+                className="relative p-8 rounded-2xl border border-gray-300/50 transition-all cursor-none shadow-lg overflow-hidden bg-white/60 backdrop-blur-sm"
+              >
+                {/* Background transparan di setiap kartu */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-25 transition-opacity duration-500 hover:opacity-45"
+                  style={{ backgroundImage: `url(${exp.background})` }}
+                />
 
-              {/* Konten utama */}
-              <div className="relative z-10">
-                <div className="w-16 h-16 rounded-full bg-gray-900 text-white flex items-center justify-center mb-6 shadow-md">
-                  <exp.icon size={28} />
+                {/* Konten utama */}
+                <div className="relative z-10">
+                  <div className="w-16 h-16 rounded-full bg-gray-900 text-white flex items-center justify-center mb-6 shadow-md">
+                    <Icon size={28} />
+                  </div>
+                  <h3
+                    className="text-2xl font-bold mb-3"
+                    style={{
+                      color: '#1a1a1a',
+                      textShadow:
+                        '0 0 6px rgba(255,255,255,0.6), 0 0 10px rgba(255,255,255,0.3)',
+                    }}
+                  >
+                    {exp.title}
+                  </h3>
+                  <p
+                    style={{
+                      color: '#2e2e2e',
+                      textShadow:
+                        '0 0 4px rgba(255,255,255,0.6), 0 0 8px rgba(255,255,255,0.2)',
+                    }}
+                  >
+                    {exp.description}
+                  </p>
                 </div>
-                <h3
-                  className="text-2xl font-bold mb-3"
-                  style={{
-                    color: '#1a1a1a',
-                    textShadow:
-                      '0 0 6px rgba(255,255,255,0.6), 0 0 10px rgba(255,255,255,0.3)',
-                  }}
-                >
-                  {exp.title}
-                </h3>
-                <p
-                  style={{
-                    color: '#2e2e2e',
-                    textShadow:
-                      '0 0 4px rgba(255,255,255,0.6), 0 0 8px rgba(255,255,255,0.2)',
-                  }}
-                >
-                  {exp.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile

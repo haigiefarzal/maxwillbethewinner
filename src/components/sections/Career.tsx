@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Briefcase, Calendar } from "lucide-react";
 
+const base = import.meta.env.BASE_URL || "";
+
 const careers = [
   {
     company: "Magnus & Co. Attorneys",
@@ -8,7 +10,7 @@ const careers = [
     period: "2021",
     description:
       "Assisted senior partners in corporate dispute analysis and courtroom brief drafting. Observed litigation strategies and handled case documentations for real corporate trials.",
-    background: "/career1.jpg",
+    background: `${base}career1.jpg`,
   },
   {
     company: "Prasetya & Partners Law Firm",
@@ -16,7 +18,7 @@ const careers = [
     period: "2022 - 2024",
     description:
       "Focused on high-profile civil cases and corporate restructuring. Represented clients in negotiation rooms and helped design legal strategies for multimillion-dollar disputes.",
-    background: "/career2.jpg",
+    background: `${base}career2.jpg`,
   },
   {
     company: "Independent Legal Counsel",
@@ -24,7 +26,7 @@ const careers = [
     period: "2025 - Present",
     description:
       "Built a personal legal practice specializing in corporate and litigation law. Known for precise argumentation, strong courtroom presence, and a philosophy rooted in mastering the narrative — not just the argument.",
-    background: "/career3.jpg",
+    background: `${base}career3.jpg`,
   },
 ];
 

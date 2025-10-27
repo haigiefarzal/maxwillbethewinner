@@ -1,20 +1,22 @@
 import { motion } from "framer-motion";
 import { MapPin, Phone, Clock } from "lucide-react";
 
+const base = import.meta.env.BASE_URL || "";
+
 const contactInfo = [
   {
     icon: MapPin,
     title: "Location",
     details: ["New York City, NY", "United States"],
     link: "https://share.google/0jUrlmscDb5Zmru3q",
-    background: "/gmapsbackground.png",
+    background: `${base}gmapsbackground.png`,
   },
   {
     icon: Phone,
     title: "Contact",
     details: ["+62 812-8717-9950", "haigiedevito@lawfirm.com"],
     link: "https://wa.me/6281234567890",
-    background: "/botaksenku.png",
+    background: `${base}botaksenku.png`,
   },
   {
     icon: Clock,
@@ -24,7 +26,7 @@ const contactInfo = [
       "Smith & King, LLC",
     ],
     link: "https://share.google/0jUrlmscDb5Zmru3q",
-    background: "/gmapsbackground.png",
+    background: `${base}gmapsbackground.png`,
   },
 ];
 

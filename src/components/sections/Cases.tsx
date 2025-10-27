@@ -1,34 +1,37 @@
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 
+// ✅ gunakan import.meta.env.BASE_URL untuk path gambar yang fleksibel
+const base = import.meta.env.BASE_URL || '';
+
 const projects = [
   {
     title: 'Corporate Fraud Settlement, Jakarta High Court',
     category: '2021 — Corporate Law',
     description:
       'Successfully defended a multinational client in a $2.4M fraud allegation; resulted in full acquittal and compensation granted.',
-    background: '/case2021background.jpg',
+    background: `${base}case2021background.jpg`,
   },
   {
     title: 'Civil Property Dispute, Bandung District Court',
     category: '2022 — Civil Litigation',
     description:
       'Represented an international real estate investor; secured 95% asset ownership rights through strategic evidential submission.',
-    background: '/case2022background.jpg',
+    background: `${base}case2022background.jpg`,
   },
   {
     title: 'Intellectual Property Case, Surabaya',
     category: '2023 — Intellectual Property',
     description:
       'Protected a startup’s trademark from unlawful replication; won exclusive IP rights registration under client’s name.',
-    background: '/case2021background.jpg',
+    background: `${base}case2021background.jpg`,
   },
   {
     title: 'Employment Law Conflict, Central Jakarta Court',
     category: '2024 — Employment Law',
     description:
       'Negotiated a dispute between a foreign company and its employees; reached a landmark settlement without litigation escalation.',
-    background: '/case2022background.jpg',
+    background: `${base}case2022background.jpg`,
   },
 ];
 
@@ -132,4 +135,3 @@ export const Cases = () => {
 };
 
 export default Cases;
-    
