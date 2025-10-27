@@ -5,27 +5,23 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    cursor: none !important;
-  }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    scroll-behavior: smooth;
-    background-color: #000; /* opsional biar glow lebih kelihatan */
-  }
-
   html {
     scroll-behavior: smooth;
   }
 
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000; /* opsional */
+    cursor: none; /* jika pakai custom cursor */
+  }
+
   h1, h2, h3 {
     font-family: 'New Rocker', cursive;
-    color: #fff; /* warna putih */
+    color: #fff;
     text-shadow:
       0 0 5px #fff,
       0 0 10px #fff,
-      0 0 20px #fff,
-      0 0 40px #aaa; /* efek glow */
+      0 0 20px #aaa,
+      0 0 30px #666;
   }
 }
