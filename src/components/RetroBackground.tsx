@@ -58,7 +58,7 @@ const WaveShader = {
 
 function AnimatedBackground() {
   const meshRef = useRef<THREE.Mesh>(null);
-  const { size, camera } = useThree();
+  const { size } = useThree();
 
   const material = useMemo(() => {
     const mat = new THREE.ShaderMaterial({
